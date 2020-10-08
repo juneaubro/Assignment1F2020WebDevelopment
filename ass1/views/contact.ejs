@@ -1,0 +1,64 @@
+<!--contact.ejs Juneau Gawat 301076796 October 8, 2020-->
+
+<%- include('./partials/header.ejs') -%>
+
+<div class="container">
+
+    <div class="jumbotron">
+      <h1 class="display-4"><%= title %> Me</h1>
+      <p class="lead">:)</p>
+      <hr class="my-4">
+      <!--<link rel="stylesheet" type="text/css" href="../public/Content/contact.css" media="all">-->
+      <script>
+          function myFunction(){
+            let firstName = document.getElementById('first_name').value;
+            let lastName = document.getElementById('last_name').value;
+            let phone = document.getElementById('phone').value;
+            let email = document.getElementById('email').value;
+            let msg = document.getElementById('msg').value;
+}; 
+      </script>
+      <body id="main_body" >
+
+          <div id="form_container">
+              <form id="form_2572" class="appnitro"  method="post" action="">
+                          <div class="form_description">
+              </div>						 
+              <label class="description" for="first_name">First Name </label>
+              <div>
+                  <input id="first_name" name="first_name" class="element text medium" type="text" maxlength="255" value=""/> 
+              </div> 
+              <br>
+              <label class="description" for="last_name">Last Name </label>
+              <div>
+                  <input id="last_name" name="last_name" class="element text medium" type="text" maxlength="255" value=""/> 
+              </div> 
+              <br>
+              <label class="description" for="phone">Phone </label>
+              <div>
+                  <input id="phone" name="phone" class="element text medium" type="text" maxlength="255" value=""/> 
+              </div> 
+              <br>
+              <label class="description" for="email">Email </label>
+              <div>
+                  <input id="email" name="email" class="element text medium" type="text" maxlength="255" value=""/> 
+              </div> 
+              <br>
+              <label class="description" for="msg">Message </label>
+              <div>
+                  <textarea id="msg" name="msg" class="element textarea medium" rows="8" cols="80"></textarea> 
+              </div> 
+              <br>
+                      <input type="hidden" name="form_id" value="2572" />
+                        
+                       <input id="button" name="button" class="button_text" type="submit" value="submit" onclick="myFunction()"/>
+
+              </form>	
+          </div>
+          </body>
+      </html>
+
+  </div>
+</div>
+
+<%- include('./partials/footer.ejs') -%>
