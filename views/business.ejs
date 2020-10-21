@@ -1,0 +1,122 @@
+<!--business.ejs Juneau Gawat 301076796 October 20, 2020-->
+
+<%- include('./partials/header.ejs') -%>
+
+    <div class="container">
+
+        <div class="jumbotron">
+          <h1 class="display-4"><%= title %></h1>
+          <hr class="my-4">
+
+          <input type="submit" onclick="addRow()" value="add"/>
+          <br>
+          <input type="submit" onclick="addRow()" value="add"/>
+          <br>
+          <input class="contactRows" id="contact1"type="text" value="John White"/>
+
+          <input class="contactRows" id="contact1"type="text" value="(123) 456-7809"/>
+
+          <input class="contactRows" id="contact1"type="text" value="no@you.com"/>
+
+          <input class="contactRows" id="contact1" type="submit" value="Delete" onclick="delRow()">
+            <br>
+          <input class="contactRows" id="contact2"type="text" value="White John"/>
+
+          <input class="contactRows" id="contact2"type="text" value="(098) 765-4321"/>
+
+          <input class="contactRows" id="contact2"type="text" value="you@no.com"/>
+
+          <input class="contactRows" id="contact2" type="submit" value="Delete" onclick="delRow()">
+
+          <div id="contact_table"></div>
+
+            <script>
+                var j = 3;
+
+            function addRow(){
+
+                var enter = document.createElement("br");
+                var newLine = document.body.appendChild(enter);
+                var delButton = document.createElement("INPUT")
+                delButton.setAttribute("type", "submit");
+                delButton.setAttribute("value", "Delete");
+                var newButton = document.body.appendChild(delButton);
+
+                for(i = 0; i < 3; i++){
+                    var x = document.createElement("INPUT");
+                    x.setAttribute("type", "text");
+                    x.setAttribute("class", "contactRows");
+                    delButton.setAttribute("id","contact"+j);
+                    var text = document.body.appendChild(x);
+                    document.getElementById('contact_table').appendChild(text);
+                    document.getElementById('contact_table').appendChild(delButton);
+                }
+                document.getElementById('contact_table').appendChild(newLine);
+                j++;
+        }
+
+            function delRow(){
+                
+                for(i = 0; i < 50; i++){
+                    var id_name = document.getElementsByClassName("contactRows")[i].id;
+                if(id_name == "contact"+[i]){
+                    for(i = 0; i < 4; i++){
+                    var element = document.getElementById(id_name);
+                    element.parentNode.removeChild(element);
+                    }
+                } 
+                if(id_name == "contact3"){
+                    for(i = 0; i < 4; i++){
+                    var element = document.getElementById(id_name);
+                    element.parentNode.removeChild(element);
+                    }
+                }
+                if(id_name == "contact4"){
+                    for(i = 0; i < 4; i++){
+                    var element = document.getElementById(id_name);
+                    element.parentNode.removeChild(element);
+                    }
+                } 
+                if(id_name == "contact5"){
+                    for(i = 0; i < 4; i++){
+                    var element = document.getElementById(id_name);
+                    element.parentNode.removeChild(element);
+                    }
+                } 
+                if(id_name == "contact6"){
+                    for(i = 0; i < 4; i++){
+                    var element = document.getElementById(id_name);
+                    element.parentNode.removeChild(element);
+                    }
+                } 
+                if(id_name == "contact7"){
+                    for(i = 0; i < 4; i++){
+                    var element = document.getElementById(id_name);
+                    element.parentNode.removeChild(element);
+                    }
+                } 
+                if(id_name == "contact8"){
+                    for(i = 0; i < 4; i++){
+                    var element = document.getElementById(id_name);
+                    element.parentNode.removeChild(element);
+                    }
+                } 
+                if(id_name == "contact9"){
+                    for(i = 0; i < 4; i++){
+                    var element = document.getElementById(id_name);
+                    element.parentNode.removeChild(element);
+                    }
+                } 
+
+                
+                }
+            }
+
+            </script>
+
+
+          
+      </div>
+    </div>
+    
+<%- include('./partials/footer.ejs') -%>

@@ -1,0 +1,173 @@
+<!--login.ejs Juneau Gawat 301076796 October 20, 2020-->
+
+<%- include('./partials/header.ejs') -%>
+
+<script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-theme.css" type="text/css" rel="stylesheet"/>
+
+<div class="container">
+
+    <div class="jumbotron">
+      <h1 class="display-4"><%= title %></h1>
+      test user: <br><br>email: test@test.com <br><br>pass: Password123
+      <hr class="my-4">
+
+      
+      
+      
+      
+      
+      
+      
+      <div id="okta-login-container"></div>
+      <script type="text/javascript">
+        var oktaSignIn = new OktaSignIn({
+          baseUrl: "https://dev-6092050.okta.com",
+          clientId: "0oacgw2z8tGF2XP5p5d5",
+          authParams: {
+            issuer: "default",
+            responseType: ['token', 'id_token'],
+            display: 'page'
+          }
+        });
+      
+        if (oktaSignIn.token.hasTokensInUrl()) {
+          oktaSignIn.token.parseTokensFromUrl(
+            // If we get here, the user just logged in.
+            function success(res) {
+              var accessToken = res[0];
+              var idToken = res[1];
+      
+              oktaSignIn.tokenManager.add('accessToken', accessToken);
+              oktaSignIn.tokenManager.add('idToken', idToken);
+      
+              window.location.hash='';
+              window.location.href = "/business";
+            },
+            function error(err) {
+              console.error(err);
+            }
+          );
+        } else {
+          oktaSignIn.session.get(function (res) {
+            oktaSignIn.renderEl(
+              { el: '#okta-login-container' },
+              function success(res) {},
+              function error(err) {
+                console.error(err);
+              }
+            );
+          });
+        }
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--
+        <div id="form_login_container">
+
+            <form id="form_login">
+
+                <label for="user_name">Username</label>
+                <br>
+                <input id="user_name" type="text" required/>
+                <br><br>
+
+                <label for="password">Password</label>
+                <br>
+                <input id="password" type="password" required/> 
+                <br><br>
+
+                <label for="email">Email</label>
+                <br>
+                <input id="email"type="text" required/> 
+                <br><br>
+
+                <input id="login_button" type="submit" value="Login" onclick="getLogin()"/>
+
+            </form>
+
+        </div>
+
+
+  </div>
+</div>
+
+<script>
+    let userCollection = [
+        {
+            username:   "sam",
+            password:   "123",
+            email:      "sam@test.com"    
+        },
+        {
+            username:   "bob",
+            password:   "marley",
+            email:      "best@test.com"    
+        },
+        {
+            username:   "jessie",
+            password:   "quill",
+            email:      "yeah@test.com"    
+        }
+    ]
+
+    function getLogin(){
+        let username = document.getElementById("user_name").value;
+        let password = document.getElementById("password").value;
+
+        for(i = 0; i < userCollection.length; i++){
+            if(username == userCollection[i].username && password == userCollection[i].password){
+                alert("Successfully logged in.");
+                break;
+            } else if((userCollection.length - 1) == i){ // length - 1 == i so the alert plays once
+                alert("Incorrect username or password.");// and not for the amount of users there are
+            }
+        }
+    };
+</script>-->
+
+<%- include('./partials/footer.ejs') -%>

@@ -37,12 +37,35 @@
           </li>
 
           <li class="nav-item active">
+            <a class="nav-link" href=""><i class="fas fa-phone"></i> Business Contacts </a>
+          </li>
+
+          <li class="nav-item active">
             <a class="nav-link" href="/contact"><i class="fas fa-phone"></i> Contact </a>
           </li>
           
-
+          <li class="nav-item active">
+            <a class="nav-link" href="/login"><i class="fas fa-phone"></i> Login </a>
+          </li>
           
         </ul>
        
       </div>
     </nav>
+
+    <script>
+      function logged_in(){
+
+        
+        oktaSignIn.session.get(function (res) {
+            if (res.status === 'ACTIVE') {
+              window.location.href = "/business";
+            } else {
+              window.location.href = "/login";
+            }
+            
+          });
+
+          
+      }
+    </script>

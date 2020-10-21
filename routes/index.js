@@ -34,8 +34,19 @@ router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Contact' });
 });
 
+/* Make the page go pack to home when clicking the contact button. */
 router.post('/contact', (req,res,next)=>{
   res.render('index', { title: 'Home' });
+});
+
+/* GET login page. */
+router.get('/login', function(req, res, next) {
+  res.render('login', { title: 'Login' });
+});
+
+/* GET Business Contacts page. */
+router.get('/business', function(req, res, next) {
+  res.render('business', { title: 'Business Contacts' });
 });
 
 module.exports = router;
