@@ -1,0 +1,49 @@
+<!--/* contacts-list.ejs Juneau Gawat 301076796 October 24, 2020 */-->
+<div class="row justify-content-md-center">
+    <div class="col-9">
+        
+      <% if(typeof displayName == 'string' && displayName){ %>
+
+        
+        <a href="/contacts/add" class="btn btn-primary btn-lg"> Add</a>
+        <br><br>
+
+      <%}%>
+        
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+            <th scope="col">Email</th>
+            <% if(typeof displayName == 'string' && displayName){ %>
+
+              
+              
+            <th></th>
+            <th></th>
+            <%}%>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i = 0; i < contacts.length; i++) { %>
+          <tr>
+            <td><%= contacts[i].name %></td>
+            <td><%= contacts[i].number %></td>
+            <td><%= contacts[i].email %></td>
+            <% if(typeof displayName == 'string' && displayName){ %>
+            <td>
+                <a href="/contacts/edit/<%= contacts[i]._id %>" class="btn btn-primary btn-sm"> Edit</a>
+            </td>
+            <td>
+                <a href="/contacts/delete/<%= contacts[i]._id %>" class="btn btn-danger btn-sm"> Delete</a>
+            </td>
+            <%}%>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>

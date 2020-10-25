@@ -5,9 +5,9 @@
   <head>
     <title><%= title %></title>
     <!-- CSS Section -->
-    <link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
     <!--<link rel="stylesheet" href="./@fortawesome/fontawesome-free/css/all.min.css">-->
-    <link rel='stylesheet' href='./Content/app.css' />
+    <link rel='stylesheet' href='/Content/app.css' />
   </head>
   <body>
     <!-- nav bar-->
@@ -37,35 +37,29 @@
           </li>
 
           <li class="nav-item active">
-            <a class="nav-link" href=""><i class="fas fa-phone"></i> Business Contacts </a>
+            <a class="nav-link" href="/contacts"><i class="fas fa-phone"></i> Business Contacts </a>
           </li>
 
           <li class="nav-item active">
             <a class="nav-link" href="/contact"><i class="fas fa-phone"></i> Contact </a>
           </li>
           
-          <li class="nav-item active">
-            <a class="nav-link" href="/login"><i class="fas fa-phone"></i> Login </a>
-          </li>
+          <% if(typeof displayName == 'string' && displayName) { %>
           
+            <li class="navbar-text"><i class="fas fa-lg fa-user"></i>Welcome, <%=displayName %></li>
+
+            <li class="nav-item active">
+              <a class="nav-link" href="/logout"><i class="fas fa-lg fa-sign-out-alt"></i> Logout </a>
+            </li>
+
+            <%} else {%>
+
+              <li class="nav-item active">
+                <a class="nav-link" href="/login"><i class="fas fa-lg fa-sign-in-alt"></i> Login </a>
+              </li>
+
+              <% } %>
         </ul>
        
       </div>
     </nav>
-
-    <script>
-      function logged_in(){
-
-        
-        oktaSignIn.session.get(function (res) {
-            if (res.status === 'ACTIVE') {
-              window.location.href = "/business";
-            } else {
-              window.location.href = "/login";
-            }
-            
-          });
-
-          
-      }
-    </script>

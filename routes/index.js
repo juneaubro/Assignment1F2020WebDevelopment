@@ -2,51 +2,52 @@
 
 let express = require('express');
 let router = express.Router();
+let mongoose = require('mongoose');
+let passport = require('passport');
+
+let Contacts = require('../models/contacts');
+let userModel = require('../models/user');
+
+let indexController = require('../public/controllers/index');
+
+let user = userModel.User;
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Home' });
-});
+router.get('/', indexController.DisplayHomePage);
+
 
 /* GET home page. */
-router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Home' });
-});
+router.get('/home', indexController.DisplayHomePage);
 
 
 /* GET Projects page. */
-router.get('/projects', function(req, res, next) {
-  res.render('projects', { title: 'Projects' });
-});
+router.get('/projects', indexController.DisplayProductsPage);
 
 /* GET Services page. */
-router.get('/services', function(req, res, next) {
-  res.render('services', { title: 'Services' });
-});
+router.get('/services', indexController.DisplayServicesPage);
 
 /* GET About page. */
-router.get('/about', function(req, res, next) {
-  res.render('about', { title: 'About' });
-});
+router.get('/about', indexController.DisplayAboutPage);
 
 /* GET Contact page. */
-router.get('/contact', function(req, res, next) {
-  res.render('contact', { title: 'Contact' });
-});
+router.get('/contact', indexController.DisplayContactPage);
 
 /* Make the page go pack to home when clicking the contact button. */
-router.post('/contact', (req,res,next)=>{
-  res.render('index', { title: 'Home' });
-});
+router.post('/contact', indexController.ProcessContactPage);
 
 /* GET login page. */
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login' });
-});
+router.get('/login', indexController.DisplayLoginPage);
 
-/* GET Business Contacts page. */
-router.get('/business', function(req, res, next) {
-  res.render('business', { title: 'Business Contacts' });
-});
+/* process login page. */
+router.post('/login', indexController.ProcessLoginPage);
+
+/* GET register page. */
+router.get('/register', indexController.DisplayRegisterPage);
+
+/* process register page. */
+router.post('/register', indexController.ProcessRegisterPage);
+
+/* preform logout page. */
+router.get('/logout', indexController.PreformLogout);
 
 module.exports = router;

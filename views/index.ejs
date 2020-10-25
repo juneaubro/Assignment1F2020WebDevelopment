@@ -6,10 +6,28 @@
 
         <div class="jumbotron">
           <h1 class="display-4"><%= title %></h1>
-          <p class="lead">Welcome to <%= title %></p>
-          <hr class="my-4">
-          <p>Mission Statement: Bettering people's day one laugh at time with cleverness, humor and wit!</p>
+          <% if(title == "Home"){ %>
+
+            <p class="lead">Welcome to <%= title %></p>
+            <hr class="my-4">
+            <p>Mission Statement: Bettering people's day one laugh at time with cleverness, humor and wit!</p>
+    
+          <%}%>
       </div>
     </div>
     
+    <% if(title == "contacts"){ %>
+
+      <%- include('./content/contacts-list.ejs') -%>
+
+    <%} else if(title == "Add Contact"){ %>
+
+      <%- include('./content/add-contact.ejs') -%>
+
+    <%} else if(title == "Edit Contact"){ %>
+
+      <%- include('./content/edit-contact.ejs') -%>
+
+    <%}%>
+
 <%- include('./partials/footer.ejs') -%>
